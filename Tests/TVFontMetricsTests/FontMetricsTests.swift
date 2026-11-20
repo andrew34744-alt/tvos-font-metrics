@@ -16,11 +16,10 @@ final class FontMetricsTests: XCTestCase {
             ("caption2", .caption2)
         ]
 
+        // The 9 actual Dynamic Type categories supported on tvOS
         let categories: [(String, UIContentSizeCategory)] = [
-            ("extraSmall", .extraSmall),
-            ("small", .small),
-            ("medium", .medium),
-            ("large (Default)", .large),
+            ("medium (tvOS Default)", .medium),
+            ("large", .large),
             ("extraLarge", .extraLarge),
             ("extraExtraLarge", .extraExtraLarge),
             ("extraExtraExtraLarge", .extraExtraExtraLarge),
@@ -36,10 +35,14 @@ final class FontMetricsTests: XCTestCase {
         print("---|---|---|---")
 
         for (styleName, style) in styles {
+            // Get the base unscaled tvOS font for this style
+            let baseFont = UIFont.preferredFont(forTextStyle: style)
+            let metrics = UIFontMetrics(forTextStyle: style)
+
             for (catName, category) in categories {
                 let traits = UITraitCollection(preferredContentSizeCategory: category)
-                let font = UIFont.preferredFont(forTextStyle: style, compatibleWith: traits)
-                print("\(styleName) | \(catName) | \(font.pointSize)pt | \(font.lineHeight)pt")
+                let scaledFont = metrics.scaledFont(for: baseFont, compatibleWith: traits)
+                print("\(styleName) | \(catName) | \(scaledFont.pointSize)pt | \(scaledFont.lineHeight)pt")
             }
         }
         print("=== END REPORT ===\n")
