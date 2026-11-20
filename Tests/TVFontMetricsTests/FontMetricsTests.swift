@@ -7,7 +7,7 @@ struct SampleTVScreen: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
             Text("Featured Movie")
-                .font(.title1)
+                .font(.title)
                 .foregroundStyle(.white)
 
             Text("Action • 2026 • 2h 15m")
