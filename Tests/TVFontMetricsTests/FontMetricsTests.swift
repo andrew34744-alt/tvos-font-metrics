@@ -4,7 +4,6 @@ import UIKit
 final class FontMetricsTests: XCTestCase {
     func testPrintAllTVOSFontMetrics() {
         let styles: [(String, UIFont.TextStyle)] = [
-            ("largeTitle", .largeTitle),
             ("title1", .title1),
             ("title2", .title2),
             ("title3", .title3),
