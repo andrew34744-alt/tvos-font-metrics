@@ -1,16 +1,16 @@
 name: Run tvOS Font Check
 
 on:
-  workflow_dispatch: # Allows you to trigger this manually with a button click
+  workflow_dispatch:
 
 jobs:
   get-metrics:
-    runs-on: macos-15
+    runs-on: xcode-27
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run script on Apple TV Simulator
+      - name: Run script on tvOS 27 Simulator
         run: |
           xcodebuild test \
             -scheme TVFontMetrics \
