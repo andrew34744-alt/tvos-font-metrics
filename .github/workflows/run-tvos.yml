@@ -10,9 +10,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run script on tvOS 27 Simulator
+      - name: Render SwiftUI Screen on tvOS 27 Simulator
         run: |
           xcodebuild test \
             -scheme TVFontMetrics \
             -destination 'platform=tvOS Simulator,name=Apple TV 4K (4th generation)'
 
+      - name: Upload Screenshot Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tvos-swiftui-preview
+          path: /tmp/tvos-preview.png
