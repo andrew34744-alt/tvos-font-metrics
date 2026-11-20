@@ -1,9 +1,9 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "TVFontMetrics",
-    platforms: [.tvOS(.v17)],
+    platforms: [.tvOS("26.0")],
     products: [
         .library(name: "TVFontMetrics", targets: ["TVFontMetrics"]),
     ],
