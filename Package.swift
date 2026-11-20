@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "TVFontMetrics",
-    platforms: [.tvOS("26.0")],
+    platforms: [.tvOS(.v17)],
     products: [
         .library(name: "TVFontMetrics", targets: ["TVFontMetrics"]),
     ],
